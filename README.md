@@ -1,91 +1,104 @@
 # 🔃↔️ Push_swap
-  
-## 🔷 The Mandatory part:
-1. We have at our disposal, two stacks named `a` and `b`.
-2. Create a program that takes as parameters, a random set of numbers (negative or positive), without duplicates. Our program has to handle both types of inputs: as a variable number of command line arguments; a string, i.e. "numbers between quotation marks, seperated by a space".
-3. Implement an algorithm, that sorts in ascending order, the input of random numbers.
-4. Our algorithm will consist of swap, rotate, reverse rotate and push operations. 
-5. After taking in an input of numbers, and passing them through our sorting algorithms, our program will output the list of operations (instructions). 
 
+## 🔷 Mandatory Part:
 
-## 🔷 Write pseudo code
+1. We are given two stacks named `a` and `b`.
+2. Create a program that accepts as input a random set of numbers (negative or positive) without duplicates. The input can be provided in two formats:
+   - A variable number of command-line arguments.
+   - A single string containing space-separated numbers.
+3. Implement an algorithm to sort the input numbers in ascending order.
+4. The sorting algorithm will use the following operations: `swap`, `rotate`, `reverse rotate`, and `push`.
+5. After processing the input through the sorting algorithm, the program will output the sequence of operations (instructions).
+
+## 🔷 Pseudo Code
+
+```plaintext
+// Declare pointers for two data structures/linked lists representing stack `a` and stack `b`
+    // Set both pointers to NULL to start with empty stacks
+
+// Handle input validation:
+    // Ensure at least two arguments are provided, and the second argument is not empty
+    // If validation fails, return an error
+
+// Parse the input:
+    // If input is a string, split it into substrings
+
+// Initialize stack `a` by appending each input number as a node
+    // Validate input for integer overflow, duplicates, and syntax errors (e.g., invalid characters)
+    // If errors are found, free stack `a` and return an error
+    // Convert valid input strings to integers and append to stack `a`
+
+// Check if stack `a` is already sorted
+    // If not sorted, apply the sorting algorithm:
+        // For 2 numbers: simply swap if needed
+        // For 3 numbers: use a simple sorting algorithm
+        // For more than 3 numbers: implement the "Turk Algorithm"
+
+// Clean up memory and exit
 ```
-//Declare pointers to two data structures/linked lists, one for stack `a` and another for `b`
-	//Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
 
-//Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
-	//If input errors, return error
+## 🔷 Using a Push_swap Visualizer
 
-//Handle both cases of input, whether a variable number of command line arguments, or as a string
-	//If the input of numbers is as a string, call split() to split the substrings
+1. A visualizer is highly recommended for debugging and understanding how the program works.
+2. A popular visualizer can be found here: [Push_swap Visualizer](https://github.com/o-reo/push_swap_visualizer).
 
-//Initialize stack `a` by appending each input number as a node to stack `a`
-	//Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits, or `-` `+` signs
-		//If errors found, free stack `a` and return error
-	//Check for each input, if it is a long integer
-		//If the input is a string, convert it to a long integer 
-	//Append the nodes to stack `a`
+### Steps to Use:
 
-//Check if stack `a` is sorted
-	//If not sorted, implement our sorting algorithm 
-		//Check for 2 numbers
-			//If so, simply swap the numbers
-		//Check for 3 numbers
-			//If so, implement our simple `sort three` algorithim
-		//Check if the stack has more than 3 numbers
-			//If so, implent our Turk Algorithm
+1. Clone the repository inside your main `push_swap` directory (where your `push_swap` executable resides):
+   ```bash
+   git clone https://github.com/o-reo/push_swap_visualizer.git
+   ```
+2. Install the required packages as mentioned in the visualizer's `README.md`:
+   ```bash
+   sudo apt update
+   sudo apt install cmake
+   ```
+3. Navigate to the visualizer's directory and build it:
+   ```bash
+   cd push_swap_visualizer
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ```
+4. Resolve any build errors by installing missing packages. Use error messages as a guide and search for solutions if necessary.
+5. After a successful build, run the visualizer:
+   ```bash
+   ./bin/visualizer
+   ```
+6. Update the "push_swap file path" in the visualizer to `../../push_swap`.
 
-//Clean up the stack
-```
+## 🔷 Using the Checker Provided by 42
 
-## 🔷 Using a push_swap visualizer
-1. I can't recommend this enough. 
-2. It was very useful for me to see what my code was doing during its implementation, and help with a lot of my debugging. 
-3. The one I used can be found here https://github.com/o-reo/push_swap_visualizer
+1. Download the appropriate checker for your operating system (e.g., `checker_Mac` or `checker_Linux`).
+2. Place the file in the same directory as your `push_swap` executable.
+3. Ensure the checker file has executable permissions:
+   ```bash
+   chmod +x <checker_filename>
+   ```
+4. Test your program with the checker:
+   - Verify correct error handling:
+     ```bash
+     ARG="4 10 1 3 2"; ./push_swap $ARG | ./checker_Mac $ARG
+     ```
+   - Count the number of instructions:
+     ```bash
+     ARG="4 10 1 3 2"; ./push_swap $ARG | wc -l
+     ```
+5. To pass evaluation, the number of instructions must meet the following requirements:
+   - For `x = 3`, `n <= 3`
+   - For `x = 5`, `n <= 12`
+   - For `x = 100`, `n < 1500`
+   - For `x = 500`, `n < 11500`
 
-Make sure you follow this sequence:
-1. git clone the repository inside your main push_swap directory, where your push_swap executable will be. 
-2. Install the required packages as stated on the README.md (do `sudo apt update` first to make sure you have the latest information about available packages)
-3. Then, to install a package, do e.g. `sudo apt install cmake`
-4. cd inside `/push_swap_visualizer` 
-5. `mkdir build`
-6. cd into `build` then:
-	- `cmake ..`
-	- `make`
-	- Like myself, you might run into some build errors in your terminal. For example, you're missing a OpenGL package. I just chat gpt'd all the error messages and followed the installation commands 😅
-7. After a sucessfull build of `cmake ..` and `make`:
-	- run `./bin/visualizer` and a window of the program should apear. 
-	- change the "push_swap file path" to `../../push_swap`
+## 🔷 Understanding Algorithms
 
+### What is an Algorithm?
+A set of instructions designed to solve a specific problem.
 
-## 🔷 Using the checker provided by 42
-1. Download the correct file from the subject page, e.g. for Mac, or Linux, inside the same directory as your executable.
-2. Running the checker likely won't work, as it won't have the executable permission. Check by typing in the terminal `ls -l`
-3. To give it permission, do `chmod +x <filename>`
-4. Test your executable against everything we need our push_swap to do:
-	- e.g. the correct outputs for all error types
-	- e.g. run `ARG="4 10 1 3 2"; ./push_swap $ARG | ./checker_Mac $ARG `
-	- To see how many instructions, run `ARG="4 10 1 3 2"; ./push_swap $ARG | wc -l`
-	- For our program to pass the evaluation, it'll have to return `n` size of instructions for sorting `x` number of values:
-		- If x = 3 then n <= 3
-		- If x = 5 then n <= 12
-		- If x = 100 then n < 1500
-		- If x = 500 then n < 11500
-		- Note: the lesser instructions our algorithm returns, the more evaluation points we will get.
-
-
-### What is an algorithm?
-- A set of intructions to solve a problem.
-
-
-### What is the concept of complexity?
-- Algorithm analysis: 
-	Analyzing the algorithm's step by step instructions to understand their performance.
-- Algorithm efficiency:
-	Looking at how quickly an algorithm solves a problem, and the resources it uses up, like time and memory.
-- Asymptotic Notation: 
-	Using mathematical notations like Big O, Omega and Theta to look at the algorithm's running time, as the problem becomes larger.
-- Time complexity:
-	Using Big O, looking at the best, worst, and average case for an algorithm to complete.
-- Space complexity:
-	Using Big 0, looking at the amount of memory space an algorithm uses.
+### Algorithm Complexity
+- **Algorithm Analysis**: Evaluating the step-by-step performance of an algorithm.
+- **Algorithm Efficiency**: Measuring how quickly an algorithm solves a problem and its resource usage (time and memory).
+- **Asymptotic Notation**: Using mathematical symbols (Big O, Omega, Theta) to describe an algorithm's performance as input size grows.
+- **Time Complexity**: Assessing the best, worst, and average runtime of an algorithm.
+- **Space Complexity**: Evaluating the memory usage of an algorithm.
