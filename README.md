@@ -1,9 +1,4 @@
 # 🔃↔️ Push_swap
-
-Check out my [tutorial here](https://youtu.be/wRvipSG4Mmk)
-
-### Contributors:
-- Leaks fix by [elpah](https://github.com/elpah)
   
 ## 🔷 The Mandatory part:
 1. We have at our disposal, two stacks named `a` and `b`.
