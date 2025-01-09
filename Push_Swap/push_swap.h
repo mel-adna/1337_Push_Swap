@@ -13,6 +13,7 @@ typedef struct	s_stack_node
 {
 	int					value;
 	int					index;
+
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }				t_stack_node;
