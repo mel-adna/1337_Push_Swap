@@ -51,7 +51,7 @@ int	operation(char *line, t_stack **a, t_stack **b)
 	else if (stack_strncmp(line, "rr", 2) == 0)
 		rotate_rr(a, b);
 	else
-		return (ft_putstr_fd("Error\n", 2), 1);
+		return (ft_putstr_fd("Error\n", 2), exit(1), 1);
 	return (0);
 }
 
