@@ -6,7 +6,7 @@
 /*   By: mel-adna <mel-adna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:29:34 by mel-adna          #+#    #+#             */
-/*   Updated: 2025/01/21 13:46:28 by mel-adna         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:10:51 by mel-adna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,15 +105,17 @@ int	main(int argc, char **argv)
 		return (1);
 	if (argc >= 2)
 	{
+		if (!argv[1][0] || argv[1][0] == '\0')
+			error_exit();
 		check_args(argv, &a);
 		if (operation_checker(&a, &b) == 0)
-			ft_putstr_fd("KO\n", 2);
+			ft_putstr_fd("KO\n", 1);
 		else
 		{
 			if (is_sorted(a) && !b)
-				ft_putstr_fd("OK\n", 2);
+				ft_putstr_fd("OK\n", 1);
 			else
-				ft_putstr_fd("KO\n", 2);
+				ft_putstr_fd("KO\n", 1);
 		}
 	}
 	else
