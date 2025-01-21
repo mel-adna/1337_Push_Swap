@@ -6,11 +6,31 @@
 /*   By: mel-adna <mel-adna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:29:34 by mel-adna          #+#    #+#             */
-/*   Updated: 2025/01/20 13:31:40 by mel-adna         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:46:28 by mel-adna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	freestacks(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	while (*a)
+	{
+		tmp = *a;
+		*a = (*a)->next;
+		free(tmp);
+	}
+	while (*b)
+	{
+		tmp = *b;
+		*b = (*b)->next;
+		free(tmp);
+	}
+	*a = NULL;
+	*b = NULL;
+}
 
 static int	stack_strncmp(char *s1, char *s2, int len)
 {
@@ -28,30 +48,30 @@ static int	stack_strncmp(char *s1, char *s2, int len)
 
 int	operation(char *line, t_stack **a, t_stack **b)
 {
-	if (stack_strncmp(line, "sa", 2) == 0)
+	if (stack_strncmp(line, "sa", 2) == 0 && line[3] == '\0')
 		swap(a);
-	else if (stack_strncmp(line, "sb", 2) == 0)
+	else if (stack_strncmp(line, "sb", 2) == 0 && line[3] == '\0')
 		swap(b);
-	else if (stack_strncmp(line, "ss", 2) == 0)
+	else if (stack_strncmp(line, "ss", 2) == 0 && line[3] == '\0')
 		swap_ss(a, b);
-	else if (stack_strncmp(line, "pa", 2) == 0)
+	else if (stack_strncmp(line, "pa", 2) == 0 && line[3] == '\0')
 		push(b, a);
-	else if (stack_strncmp(line, "pb", 2) == 0)
+	else if (stack_strncmp(line, "pb", 2) == 0 && line[3] == '\0')
 		push(a, b);
-	else if (stack_strncmp(line, "ra", 2) == 0)
+	else if (stack_strncmp(line, "ra", 2) == 0	&& line[3] == '\0')
 		rotate(a);
-	else if (stack_strncmp(line, "rb", 2) == 0)
+	else if (stack_strncmp(line, "rb", 2) == 0 && line[3] == '\0')
 		rotate(b);
-	else if (stack_strncmp(line, "rra", 3) == 0)
-		reverse_rotate(a);
-	else if (stack_strncmp(line, "rrb", 3) == 0)
-		reverse_rotate(b);
-	else if (stack_strncmp(line, "rrr", 3) == 0)
-		reverse_rotate_rrr(a, b);
-	else if (stack_strncmp(line, "rr", 2) == 0)
+	else if (stack_strncmp(line, "rr", 2) == 0 && line[3] == '\0')
 		rotate_rr(a, b);
+	else if (stack_strncmp(line, "rra", 3) == 0 && line[4] == '\0')
+		reverse_rotate(a);
+	else if (stack_strncmp(line, "rrb", 3) == 0 && line[4] == '\0')
+		reverse_rotate(b);
+	else if (stack_strncmp(line, "rrr", 3) == 0 && line[4] == '\0')
+		reverse_rotate_rrr(a, b);
 	else
-		return (ft_putstr_fd("Error\n", 2), exit(1), 1);
+		return (1);
 	return (0);
 }
 
@@ -64,6 +84,7 @@ int	operation_checker(t_stack **a, t_stack **b)
 	{
 		if (operation(line, a, b))
 		{
+			freestacks(a, b);
 			free(line);
 			return (0);
 		}
@@ -97,5 +118,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (1);
-	free_stack(&a);
+	freestacks(&a , &b);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-adna <mel-adna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 15:24:11 by mel-adna          #+#    #+#             */
-/*   Updated: 2025/01/19 15:24:38 by mel-adna         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:06:52 by mel-adna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	sort_three(t_stack **a)
 {
 	t_stack	*big_n;
-	t_stack	*tmp;
 
-	tmp = *a;
 	big_n = find_max_node(*a);
 	if (big_n == *a && ft_stacksize(*a) == 3)
 		ra(a);
