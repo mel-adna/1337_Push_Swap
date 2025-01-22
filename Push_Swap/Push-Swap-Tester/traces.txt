@@ -1,0 +1,5 @@
+BONUS-Multiple size <= 100
+OK
+BONUS-Multiple size <= 500
+OK
+BONUS-All size test
