@@ -30,6 +30,10 @@ This repository is dedicated to learning and exploring concepts related to the *
 ![ScreenRecording2025-01-22at12 39 29PM-ezgif com-optimize](https://github.com/user-attachments/assets/d8968128-e65f-4a10-8e88-ec9aaf29151c)
 
 
+
+https://github.com/user-attachments/assets/fcedbc35-d406-4a1a-b308-ea8989408543
+
+
 ---
 
 Feel free to explore these resources and deepen your understanding of the concepts required for the **Push Swap** project!
