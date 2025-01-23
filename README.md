@@ -26,6 +26,9 @@ This repository is dedicated to learning and exploring concepts related to the *
   
   [GUIDE](https://42-cursus.gitbook.io/guide/rank-02/push_swap)
 
+![Uploading ScreenRecording2025-01-22at12.39.29PM-ezgif.com-optimize.gif…]()
+
+
 ---
 
 Feel free to explore these resources and deepen your understanding of the concepts required for the **Push Swap** project!
