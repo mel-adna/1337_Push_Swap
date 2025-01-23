@@ -26,7 +26,8 @@ This repository is dedicated to learning and exploring concepts related to the *
   
   [GUIDE](https://42-cursus.gitbook.io/guide/rank-02/push_swap)
 
-![Uploading ScreenRecording2025-01-22at12.39.29PM-ezgif.com-optimize.gif…]()
+
+![ScreenRecording2025-01-22at12 39 29PM-ezgif com-optimize](https://github.com/user-attachments/assets/d8968128-e65f-4a10-8e88-ec9aaf29151c)
 
 
 ---
