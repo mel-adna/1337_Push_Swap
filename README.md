@@ -31,8 +31,6 @@ This repository is dedicated to learning and exploring concepts related to the *
 
 
 
-https://github.com/user-attachments/assets/fcedbc35-d406-4a1a-b308-ea8989408543
-
 
 ---
 
